@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Main } from './pages/Main'
+
 export const App = () => (
-  <div>APP</div>
+  <Main />
 )

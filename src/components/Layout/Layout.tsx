@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const LayoutContainer = styled.div`
-  background-color: hsl(207, 26%, 17%);
+import { Header } from '../Header'
+
+const Wrapper = styled.div`
   min-height: 100vh;
-  color: white;
 `
 interface LayoutProps {
   children: React.ReactNode
@@ -12,8 +12,9 @@ interface LayoutProps {
 
 export const Layout = ({ children }: LayoutProps) => {
   return (
-    <LayoutContainer>
+    <Wrapper>
+      <Header />
       {children}
-    </LayoutContainer>
+    </Wrapper>
   )
 }

@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { THEMES, themeName } from "../themes";
+import { THEMES, themeName } from "../services/theme";
 
 export const useTheme = (): [themeName, () => void] => {
   const [themeName, setTheme] = useState(THEMES.LIGHT);

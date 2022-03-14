@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { ThemeContext } from '../../themes'
+import { ThemeContext } from '../../services/theme'
 import { noop } from '../../utils/noop'
 
 interface ThemeSwitcherProps {

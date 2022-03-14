@@ -1,7 +1,32 @@
 import React from 'react'
+import styled from 'styled-components'
+import { IoMoonOutline } from "react-icons/io5";
 
 import { ThemeContext } from '../../services/theme'
+import { devices } from '../../media'
 import { noop } from '../../utils/noop'
+
+const ButtonWrapper = styled.button`
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  border: none;
+  background: none;
+  color: ${({ theme }) => theme.textColor};
+  font-size: 16px;
+  transition: opacity 0.25s ease-in-out;
+  outline: none;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  @media ${devices.mobile} {
+    font-size: 12px;
+  }
+`
 
 interface ThemeSwitcherProps {
   onClick?: () => void
@@ -9,7 +34,10 @@ interface ThemeSwitcherProps {
 
 const ThemeSwitcherView = ({ onClick = noop }: ThemeSwitcherProps) => {
   return (
-    <button onClick={onClick}>SWITCH</button>
+    <ButtonWrapper onClick={onClick}>
+      <IoMoonOutline style={{ fill: 'currentColor', marginRight: '5px' }} />
+      <span>Dark Mode</span>
+    </ButtonWrapper>
   )
 }
 

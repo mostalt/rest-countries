@@ -14,9 +14,9 @@ const getNativeName = (name: NativeNameDTO | undefined): string | undefined => {
   }
 };
 
-const prepareDict = (resp: CountriesResponse): CountriesDict => {
-  const result = resp.reduce<CountriesDict>((acc, country) => {
-    const iata = country.cca3;
+const castData = (resp: CountriesResponse): CountriesDict => {
+  return resp.reduce<CountriesDict>((acc, country) => {
+    const iata = country.cca2;
 
     acc[iata] = {
       iata,
@@ -33,8 +33,6 @@ const prepareDict = (resp: CountriesResponse): CountriesDict => {
     };
     return acc;
   }, {});
-
-  return result;
 };
 
 export const useFetchCoutries = () => {
@@ -50,27 +48,8 @@ export const useFetchCoutries = () => {
           "https://restcountries.com/v3.1/all"
         );
         const data = resp?.data;
-        const result = data.reduce((acc, country) => {
-          const iata = country.cca3;
-          const native = getNativeName(country.name.nativeName);
+        const result = castData(data);
 
-          return {
-            ...acc,
-            [iata]: {
-              iata,
-              capital: country.capital,
-              region: country.region,
-              subregion: country.subregion,
-              currencies: country.currencies,
-              languages: country.languages,
-              population: country.population,
-              tld: country.tld,
-              borders: country.borders,
-            },
-          };
-        }, {});
-
-        console.log(result, "result");
         setCountries(result);
 
         setIsLoading(false);

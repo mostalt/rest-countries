@@ -28,6 +28,10 @@ const ButtonWrapper = styled.button`
   }
 `
 
+const Label = styled.div`
+  margin-left: 5px;
+`
+
 interface ThemeSwitcherProps {
   onClick?: () => void
 }
@@ -35,8 +39,8 @@ interface ThemeSwitcherProps {
 const ThemeSwitcherView = ({ onClick = noop }: ThemeSwitcherProps) => {
   return (
     <ButtonWrapper onClick={onClick}>
-      <IoMoonOutline style={{ fill: 'currentColor', marginRight: '5px' }} />
-      <span>Dark Mode</span>
+      <IoMoonOutline style={{ fill: 'currentColor' }} />
+      <Label>Dark Mode</Label>
     </ButtonWrapper>
   )
 }

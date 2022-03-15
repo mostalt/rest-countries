@@ -9,7 +9,7 @@ export const GlobalStyle = createGlobalStyle<ThemeProps<Theme>>`
     padding: 0;
     margin: 0;
     font-family: 'Nunito Sans, sans-serif';
-    font-weight: normal;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     color: ${({ theme }) => theme.textColor};
     background: ${({ theme }) => theme.background};

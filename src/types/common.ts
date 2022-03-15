@@ -12,35 +12,35 @@ export type Currency = {
 
 export type CoutryDTO = {
   name: { official: "string"; nativeName?: NativeNameDTO };
-  cca3: string; // iata
-  capital: string[];
+  cca2: string; // iata
   region: string;
-  subregion: string;
-  currencies: { [key: string]: Currency };
-  languages: {
+  population: number;
+  capital?: string[];
+  subregion?: string;
+  currencies?: { [key: string]: Currency };
+  languages?: {
     [key: string]: string;
   };
-  population: number;
-  tld: string[];
   borders?: string[];
+  tld: string[];
 };
 
 export type CountriesResponse = CoutryDTO[];
 
 export type Coutry = {
-  name: string;
-  nativeName?: string;
   iata: string;
-  capital: string[];
+  name: string;
   region: string;
-  subregion: string;
-  currencies: { [key: string]: Currency };
-  languages: {
+  population: number;
+  capital?: string[];
+  nativeName?: string;
+  subregion?: string;
+  currencies?: { [key: string]: Currency };
+  languages?: {
     [key: string]: string;
   };
-  population: number;
-  tld: string[];
   borders?: string[];
+  tld: string[];
 };
 
 export type CountriesDict = {

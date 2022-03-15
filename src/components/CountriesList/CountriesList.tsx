@@ -17,34 +17,27 @@ const Container = styled.div`
 `
 
 const ListWrapper = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   margin: 0;
   list-style-type: none;
   text-align: left;
   padding-left: 0;
-  margin-right: -60px;
-
 
   @media ${devices.mobile} {
-    margin-right: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
   }
 `
 
 const CardWrapper = styled.li`
-  display: inline-block;
-  vertical-align: top;
-  width: 25%;
-  padding-right: 60px;
-  padding-bottom: 40px;
-
-  @media ${devices.tablet} {
-    width: 50%;
-  }
+  max-width: 300px;
+  margin-bottom: 60px;
 
   @media ${devices.mobile} {
-    width: 100%;
     max-width: 500px;
-    display: block;
-    padding: 0 20px 30px;
   }
 `
 
